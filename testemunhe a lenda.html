@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bugatti Chiron | A História do Ícone</title>
+    <style>
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes glowText {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(0, 76, 250, 0.3);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(0, 76, 250, 0.6);
+            }
+        }
+
+        @keyframes colorChange {
+            0% {
+                color: var(--white);
+            }
+            100% {
+                color: var(--bugatti-blue);
+            }
+        }
+
+        :root {
+            --bugatti-blue: #004CFA;
+            --deep-black: #050505;
+            --dark-gray: #111111;
+            --text-gray: #a1a1a1;
+            --white: #ffffff;
+        }
+
+        body {
+            background-image:
+                linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
+                url('fundo\ testemunhe\ a\ lenda.jfif');
+            color: var(--white);
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            line-height: 1.8;
+            background-size: cover;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        header {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.7), var(--deep-black)), 
+                        url('fundo2\ testemunhe\ a\ lenda.jfif');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+            border-radius: 15px;
+        }
+
+        h1 { 
+            font-size: 3rem; 
+            letter-spacing: 5px; 
+            text-transform: uppercase; 
+            animation: glowText 3s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+
+        h1:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 30px rgba(0, 76, 250, 0.8);
+        }
+
+        h2 { 
+            color: var(--bugatti-blue); 
+            margin-top: 40px; 
+            padding-bottom: 10px; 
+            transition: all 0.3s ease;
+            animation: slideInLeft 0.6s ease-out;
+            text-align: center;
+        }
+
+        h2:hover {
+            color: var(--white);
+            text-shadow: 0 0 20px rgba(0, 76, 250, 0.5);
+            transition: color 0.4s ease-in-out;
+        }
+
+        .creator-box {
+            background: blur;
+            padding: 30px;
+            margin: 30px 0;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 8px 32px rgba(5, 5, 5, 0.3);
+            animation: fadeInUp 0.6s ease-out 0s;
+            color: var(--white);
+        }
+
+        .creator-box:hover {
+            transform: translateX(10px);
+            transform: translateY(10px);
+            box-shadow: 0 8px 32px rgba(0, 76, 250, 0.3);
+            animation: colorChange 0.5s ease-in-out forwards;
+        }
+
+        .edition-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 10fr));
+            gap: 30px;
+            margin-top: 70px;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+        .edition-card {
+            background: var(--dark-gray);
+            padding: 20px;
+            border-radius: 15px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 76, 250, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        .edition-card:nth-child(1) { animation-delay: 0.1s; }
+        .edition-card:nth-child(2) { animation-delay: 0.2s; }
+        .edition-card:nth-child(3) { animation-delay: 0.3s; }
+        .edition-card:nth-child(4) { animation-delay: 0.4s; }
+        .edition-card:nth-child(5) { animation-delay: 0.5s; }
+        .edition-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .edition-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 76, 250, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .edition-card:hover {
+            border: 1px solid var(--bugatti-blue);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 16px 48px rgba(0, 76, 250, 0.3);
+        }
+
+        .edition-card:hover::before {
+            left: 100%;
+        }
+
+        .edition-card h3 {
+            color: var(--bugatti-blue);
+            transition: all 0.3s ease;
+        }
+
+        .edition-card:hover h3 {
+            color: var(--white);
+            text-shadow: 0 0 20px rgba(0, 76, 250, 0.6);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 50px;
+            padding: 12px 35px;
+            border: 2px solid var(--white);
+            color: var(--white);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 50px;
+            animation: fadeInUp 0.6s ease-out 0.6s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .back-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--bugatti-blue);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .back-btn:hover {
+            background: var(--white);
+            color: var(--deep-black);
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 76, 250, 0.5);
+        }
+
+        .back-btn:hover::before {
+            left: 0;
+        }
+
+        .theme-box {
+            background: blur;
+            padding: 40px 30px;
+            margin: 30px 0;
+            border-radius: 15px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .theme-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 48px rgba(0, 76, 250, 0.2);
+            background: blur;
+        }
+
+        .theme-box p {
+            transition: color 0.3s ease;
+        }
+
+        .theme-box:hover p {
+            color: var(--bugatti-blue);
+        }
+
+        .theme-box ul {
+            transition: all 0.3s ease;
+        }
+
+        .theme-box li {
+            transition: all 0.3s ease;
+            margin: 15px 0;
+        }
+
+        .theme-box li:hover {
+            transform: translateX(10px);
+            color: var(--bugatti-blue);
+            text-shadow: 0 0 10px rgba(0, 76, 250, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div>
+            <p style="letter-spacing: 5px;">HERANÇA E VELOCIDADE</p>
+            <h1>A História do Chiron</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="theme-box">
+            <h2>O Nascimento de uma Lenda</h2>
+            <p>Apresentado no Salão de Genebra em 2016, o Bugatti Chiron nasceu com uma missão impossível: superar o Veyron. O nome é uma homenagem a <strong>Louis Chiron</strong>, o piloto mais icônico da marca, que dominou os Grandes Prêmios nas décadas de 20 e 30.</p>
+        </div>
+
+        <div class="creator-box">
+            <h2>O Criador e a Visão</h2>
+            <p>Embora a Bugatti faça parte do Grupo Volkswagen, a alma do Chiron foi moldada pela visão de <strong>Ettore Bugatti</strong> (fundador original) e executada sob a liderança de engenharia de nomes como Wolfgang Dürheimer. O design, liderado por Achim Anscheidt, focou na "Linha Bugatti" em forma de C, que além de estética, serve para resfriar o massivo motor W16.</p>
+        </div>
+
+        <div class="theme-box">
+            <h2>Informações Importantes</h2>
+            <ul>
+                <li><strong>Motor:</strong> 8.0 Litros W16 com 4 turbocompressores.</li>
+                <li><strong>Coração:</strong> Produz 1.500 cavalos de potência na sua versão base.</li>
+                <li><strong>Arrefecimento:</strong> Possui 10 radiadores para gerenciar o calor extremo.</li>
+                <li><strong>Exclusividade:</strong> Apenas 500 unidades foram produzidas em toda a sua história.</li>
+            </ul>
+        </div>
+
+        <h2>Edições Especiais</h2>
+        <div class="edition-grid">
+            <div class="edition-card" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('chiron\ noire.jpg');">
+                <h3>Noire</h3>
+                <p>Édition Noire Disponível nas variantes Noire Élégance (fibra de carbono brilhante) e Noire Sportive (fosca).</p>
+            </div>
+            <div class="edition-card" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('chiron\ 110\ ans.jpg');">
+                <h3>110 Ans Bugatti</h3>
+                <p>Bugatti 110 Ans é a celebração da identidade francesa, destacando-se pelo acabamento em fibra de carbono azul fosco e detalhes com as cores da bandeira da França (Le Bleu-Blanc-Rouge) aplicados nos retrovisores e sob a asa traseira.</p>
+            </div>
+            <div class="edition-card" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('chiron\ les\ legend.jpg');">
+                <h3>Les Légendes</h3>
+                <p>Les Légendes du Ciel: Homenagem aos pilotos da Bugatti que também foram aviadores no início do século XX.</p>
+            </div>
+            <div class="edition-card" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('chiron\ l\'ebe.jpg');">
+                <h3>L'Ébé</h3>
+                <p>L'Ébé Homenagem à filha de Ettore Bugatti, com detalhes em ouro de 24 quilates.</p>
+            </div>
+            <div class="edition-card" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('chiron\ golden\ era.jpg');">
+                <h3>Golden Era</h3>
+                <p>Golden Era Uma peça única com desenhos feitos à mão na carroceria representando a história da Bugatti.</p>
+            </div>
+            <div class="edition-card" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('chiron\ habit\ rouge.jpg');">
+                <h3>Habit Rouge</h3>
+                <p>Habit Rouge Edição ultra-exclusiva inspirada nas cores clássicas de corrida.</p>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-btn">← Voltar ao Início</a>
+    </div>
+
+</body>
+</html>
